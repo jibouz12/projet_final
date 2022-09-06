@@ -71,13 +71,13 @@
         .like-comment {
             display: flex;
             .logo-like > i, .fa-comment {
-                margin-left: 30px ;
-                font-size: 32px;
+                margin-left: 20px ;
+                font-size: 30px;
             }
         }
         .number-like {
             margin-right: 20px;
-            font-size: 24px;
+            font-size: 20px;
             color: $primaire;
         }
     }
@@ -115,8 +115,6 @@
 ////////////////////////
 .postLiked {
     > i {
-        margin-left: 30px ;
-        font-size: 32px;
         font-weight: bold;
         color: $primaire;
     }

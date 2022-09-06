@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Post } from 'src/app/core/models/post.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { PostService } from 'src/app/core/services/post.service';
@@ -12,6 +12,7 @@ import { PostService } from 'src/app/core/services/post.service';
 })
 export class ProfilComponent implements OnInit {
   post$! : Observable<Post[]>;
+  nbrPosts!: number;
 
   constructor(private postService : PostService,
               private auth : AuthService) { }
@@ -21,7 +22,11 @@ export class ProfilComponent implements OnInit {
 /// --> récupérer les posts en passant cet id
   ngOnInit(): void {
     let user = this.auth.getUserId();
-    this.post$ = this.postService.getPostsByUserId(user);
+    this.post$ = this.postService.getPostsByUserId(user).pipe(
+      tap(e => {
+        this.nbrPosts = e.length;
+      }) 
+    )
   }
 
 }

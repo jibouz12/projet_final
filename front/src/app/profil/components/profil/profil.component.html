@@ -1,1 +1,6 @@
 <app-post *ngFor="let postElement of (post$ | async)?.reverse() as post" [post]="postElement"></app-post>
+<div *ngIf="nbrPosts == 0" class="nbrPosts">
+    <h2>OUPSS !! </h2>
+    <p>Tu n'as encore rien posté !</p>
+    <i class="fa-solid fa-ghost"></i>
+</div>
