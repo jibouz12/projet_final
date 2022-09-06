@@ -33,7 +33,7 @@
             <input type="text" title="commenter" placeholder="commenter..." id="commentaire" name="commentaireInput" [(ngModel)]="commentaireInput" required>
             <button (click)="commenter(post._id)" type="submit" title="envoyer" class="fa-regular fa-paper-plane"></button>
     </form>
-    <p class="date">{{ post.date| time}}</p>
+    <p class="date">{{ post.date| time }}</p>
     <div class="control-boutons" *ngIf="userId == post.userId || userAdmin === 'o'">
         <button (click)="modifyPost(post._id)" class="modifier">MODIFIER</button>
         <button (click)="deletePost(post._id)" class="supprimer">SUPPRIMER</button>
