@@ -1,0 +1,44 @@
+@import "/src/assets/sass/colors.scss", "/src/assets/sass/post.scss", "/src/assets/sass/responsive.scss";
+
+.single-description {
+    font-size: 18px;
+}
+
+.commentaire {
+    display: flex; 
+    flex-direction: row;
+    .pseudo {
+        margin-right: 20px
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    background-color: $secondaire;
+    > p {
+        margin-right: 20px;
+    }
+    #commentaire {
+        width: 50%;
+        border: none;
+        background-color: $secondaire;
+        &::placeholder {
+        font-style: italic;
+        background-color: $secondaire;
+        }
+        &:focus-visible {
+            outline: none;
+            background-color: $secondaire;
+        }
+    }
+    .fa-paper-plane {
+        font-size: 24px;
+        border-style: none;
+        background-color: $secondaire;
+    }
+}
+
+
+
+

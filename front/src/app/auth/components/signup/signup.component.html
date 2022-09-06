@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>S'inscrire</h2>
+    <form [formGroup]="signupForm">
+        <div class="form-group">
+          <label for="signupEmail">Email</label>
+          <input type="email" class="form-control" id="signupEmail" formControlName="signupEmail">
+        </div>
+        <div class="form-group">
+          <label for="signupPassword">Mot de Passe</label>
+          <input type="password" class="form-control" id="signupPassword" formControlName="signupPassword">
+        </div>
+        <div class="bouton">
+            <button type="submit" (click)="signUp()" [disabled]="signupForm.invalid">INSCRIPTION</button>
+        </div>
+    </form>
+</div>

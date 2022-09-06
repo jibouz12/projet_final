@@ -1,0 +1,37 @@
+<div class="post-card" *ngIf="post$ | async as post">
+    <div class="name">
+        <p (click)="goToProfil(post.userId)"><strong>{{ post.name | uppercase }}</strong></p>
+    </div>
+    <div class="post-card-body">
+        <div class="post-card-img">
+            <img [src]="post.imageURL" alt="image postée par {{ post.name }}">
+        </div>
+        <div *ngIf="post.description" class="description-contenair">
+            <p id="description-{{ post._id }}" class="description">{{ post.description }}</p>
+            <button *ngIf="post.description.length > 175" id="bouton-{{ post._id}}" (click)="voirPlus()">Voir plus</button>
+        </div>
+    </div>
+    <div class="like-comment-likes">
+        <div class="like-comment">
+            <div class="logo-like" (click)="liker(post._id)" [ngClass]="{ postLiked: (liked == true && userId != post.userId) }">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+            <a title="commenter" routerLink="/{{ post._id }}">
+                <i class="fa-regular fa-comment"></i>
+            </a>
+        </div>
+        <p class="number-like" *ngIf="nombreLikes == 1">{{ post.likes +1 }} J'aime</p>
+        <p class="number-like" *ngIf="nombreLikes == 0">{{ post.likes }} J'aime</p>
+        <p class="number-like" *ngIf="nombreLikes == -1">{{ post.likes -1 }} J'aime</p>
+
+    </div>
+    <div *ngIf="post.com.length > 0" id="com-{{ post._id }}" class="com-contenair">
+        <p (click)="afficherCom()">voir le<span [ngClass]="{ 'commentaire_unique':  post.com.length == 1}">s {{ post.com.length }}</span> commentaire<span [ngClass]="{ 'commentaire_unique':  post.com.length == 1}">s</span></p>
+    </div>
+    <p class="date">{{ post.date | time }}</p>
+    <div class="control-boutons" *ngIf="userId == post.userId || userAdmin === 'o'">
+        <button (click)="modifyPost(post._id)" class="modifier">MODIFIER</button>
+        <button (click)="deletePost(post._id)" class="supprimer">SUPPRIMER</button>
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+<h2>Modifier le post</h2>
+<div class="container">
+    <form [formGroup]="postForm">
+        <div class="form-group originalImage-container">
+            <label class="originalImage" for="imageURL"><img *ngIf="post" src="{{ post.imageURL }}" alt="{{ post.name }}"></label>
+            <input class="input-file" id="imageURL" accept="image/*" type="file" (change)="onFileAdded($event)">
+        </div>
+        <p>cliquez sur l'image pour la modifier</p>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" type="text" formControlName="description"></textarea>
+        </div>
+        <div class="bouton">
+            <button type="submit" (click)="modifyPost()" [disabled]="postForm.invalid">MODIFIER !</button>
+        </div>
+    </form>
+</div>
+
+

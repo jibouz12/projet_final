@@ -1,0 +1,34 @@
+/////////////////////
+/// mobil
+@media all and (max-width: 480px) {
+    /////////////////
+    /// posts
+    .post-card {
+        padding: 15px;
+        .post-card-img {
+            max-height: 300px;
+        }
+        .date {
+            margin-top: 0;
+        }
+    }
+
+    /////////////////
+    /// login / signup
+    .container {
+        width: 80%;
+    }
+}
+
+/////////////////////
+/// tablette
+@media all and (min-width: 481px) and (max-width: 720px) {
+    /////////////////
+    /// posts
+    .post-card {
+        padding: 15px 35px;
+        .date {
+            margin-top: 0;
+        }
+    }
+}

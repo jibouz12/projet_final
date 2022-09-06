@@ -1,0 +1,36 @@
+@import "/src/assets/sass/colors.scss";
+
+////////////////////////
+.container-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+    .logo {
+        width: 90%;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    height: 80px;
+    a {
+        width: 20%;
+        padding: 20px;
+        background-color: $secondaire;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        font-size: 32px;
+        box-shadow: $tertiaire 4px 4px 20px;
+    }
+}
+  
+.active {
+    color: $primaire;
+    border: thick double $tertiaire;
+}

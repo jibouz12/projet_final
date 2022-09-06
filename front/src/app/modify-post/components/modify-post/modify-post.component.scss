@@ -1,0 +1,101 @@
+@import "/src/assets/sass/colors.scss";
+
+///////////////
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: $blanc;
+}
+
+//////////////////////////
+.container {
+    height: 500px;
+    width: 60%;
+    margin: auto;
+    background-color: $secondaire;
+    box-shadow: $tertiaire 4px 4px 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: thick double $tertiaire;
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+        }
+        .form-group {
+            width: 80%;
+            margin: 10px 0px;
+            display: flex;
+            flex-direction: column;
+            > input, textarea {
+                padding-left: 10px;
+                margin-top: 10px;
+                border: none;
+                box-shadow: $tertiaire 4px 4px 20px;
+                &:focus-visible {
+                    outline: none;
+                    padding-left: 10px;
+                }
+            }
+            #imageURL {
+                font-size: 12px;
+                box-shadow: none;
+            }
+        }
+        .bouton {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0px;
+            button {
+                background-color: $tertiaire;
+                color: $secondaire;
+                padding: 10px;
+                border-radius: 20px;
+                box-shadow: $tertiaire 4px 4px 20px;
+            }
+        }
+    }
+}
+
+///////////////////////////////
+.originalImage-container {
+    border-radius: 20px;
+    border: thick double $primaire;
+    background-color: $blanc;
+    box-shadow: $tertiaire 4px 4px 20px;
+    padding: 10px 0;
+    .originalImage {
+        height: 225px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        img {
+            object-fit: cover;
+            width: 70%;
+            height: 100%;
+            border-radius: 20px;
+        }
+    }
+    .input-file {
+        display: none;
+    }
+}
+
+//////////////////////////
+/// responsive mobil
+@media all and (max-width: 480px) {
+    .container {
+        width: 85%;
+    }
+}

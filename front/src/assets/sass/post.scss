@@ -1,0 +1,125 @@
+@import "/src/assets/sass/colors.scss";
+
+///////////////////////
+/// animation pour afficher toute la description 
+@keyframes afficher-description {
+    100% {
+        -webkit-line-clamp: initial;
+    }
+}
+
+/////////////////////////
+/// 
+.post-card {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 15px 50px;
+    background-color: $secondaire;
+    box-shadow: $tertiaire 4px 4px 20px;
+    border: thick double $tertiaire;
+    border-radius: 20px;
+    .name {
+        margin-left: 25px;
+    }
+    .post-card-body {
+        border-radius: 20px;
+        border: thick double $primaire;
+        background-color: $blanc;
+        box-shadow: $tertiaire 4px 4px 20px;
+        padding: 10px;
+        .post-card-img {
+            height: 450px;
+            width: 100%;
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                border-radius: 20px;
+            }
+        }
+        .description-contenair {
+            width: 75%;
+            margin: auto;
+            overflow: hidden;
+            .description {
+                font-size: 18px;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis; 
+                animation-name: afficher-description;
+                animation-duration: 1ms;
+                animation-fill-mode: both; 
+                animation-play-state: paused; 
+            }  
+            button {
+                float: right;
+                background-color: $secondaire;
+                border: none;
+                border-radius: 10px;
+                padding: 5px 10px;
+            }
+        }
+    }
+    .like-comment-likes {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 72px;
+        .like-comment {
+            display: flex;
+            .logo-like > i, .fa-comment {
+                margin-left: 30px ;
+                font-size: 32px;
+            }
+        }
+        .number-like {
+            margin-right: 20px;
+            font-size: 24px;
+            color: $primaire;
+        }
+    }
+    .date {
+        margin: 20px 0px;
+        font-size: 12px;
+    }
+}
+
+////////////////////////
+/// pour afficher ou non les "s" à la ligne : "afficher le(s) commentaire(s)"
+.commentaire_unique {
+    display: none;
+}
+
+.control-boutons {
+    display: flex;
+    justify-content: space-around;
+    .modifier {
+        background-color: $tertiaire;
+        border-radius: 10px;
+        padding: 10px;
+        color: $secondaire;
+        border: thick double $secondaire;
+    }
+    .supprimer {
+        background-color: $primaire;
+        border-radius: 10px;
+        padding: 10px;
+        color: $secondaire;
+        border: thick double $secondaire;
+    }
+}
+
+////////////////////////
+.postLiked {
+    > i {
+        margin-left: 30px ;
+        font-size: 32px;
+        font-weight: bold;
+        color: $primaire;
+    }
+}
+
+

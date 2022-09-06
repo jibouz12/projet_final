@@ -1,0 +1,42 @@
+<div class="post-card" *ngIf="post$ | async as post">
+    <div class="name">
+        <p (click)="goToProfil(post.userId)"><strong>{{ post.name | uppercase }}</strong></p>
+    </div>
+    <div class="post-card-body">
+        <div class="post-card-img">
+            <img [src]="post.imageURL" alt="image postée par {{ post.name }}">
+        </div>
+        <div *ngIf="post.description" class="description-contenair">
+            <p class="single-description">{{ post.description }}</p>
+        </div>
+    </div>
+    <div class="like-comment-likes">
+        <div class="like-comment">
+            <div class="logo-like" (click)="liker(post._id)" [ngClass]="{ postLiked: (liked == true && userId != post.userId) }">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+        </div>
+        <p class="number-like" *ngIf="nombreLikes == 1">{{ post.likes +1 }} J'aime</p>
+        <p class="number-like" *ngIf="nombreLikes == 0">{{ post.likes }} J'aime</p>
+        <p class="number-like" *ngIf="nombreLikes == -1">{{ post.likes -1 }} J'aime</p>
+    </div>
+    <div *ngFor="let e of post.com" class="com-contenair">
+        <div class="commentaire-container">
+            <div class="commentaire">
+                <p class="pseudo"><strong>{{ e.pseudo }}</strong></p>
+                <p>{{ e.comment }}</p>
+            </div>
+        </div>
+    </div>
+    <form id="comForm" method="post" class="commenter">
+            <p><strong>{{ userPseudo }}</strong></p>
+            <input type="text" title="commenter" placeholder="commenter..." id="commentaire" name="commentaireInput" [(ngModel)]="commentaireInput" required>
+            <button (click)="commenter(post._id)" type="submit" title="envoyer" class="fa-regular fa-paper-plane"></button>
+    </form>
+    <p class="date">{{ post.date| time}}</p>
+    <div class="control-boutons" *ngIf="userId == post.userId || userAdmin === 'o'">
+        <button (click)="modifyPost(post._id)" class="modifier">MODIFIER</button>
+        <button (click)="deletePost(post._id)" class="supprimer">SUPPRIMER</button>
+    </div>
+</div>
+

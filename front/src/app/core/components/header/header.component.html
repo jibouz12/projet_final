@@ -1,0 +1,9 @@
+<div class="container-logo">
+    <img class="logo" src="assets/images/logo.png" alt="logo groupomania blanc">
+</div>
+<nav>
+    <a routerLink="profil" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="fa-solid fa-user"></a>
+    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="fa-solid fa-people-group"></a>
+    <a routerLink="/create/new" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="fa-solid fa-plus"></a>
+    <a (click)="logout()" class="fa-solid fa-right-from-bracket"></a>
+</nav>

@@ -1,0 +1,23 @@
+@import "/src/assets/sass/colors.scss", "/src/assets/sass/login-card.scss", "/src/assets/sass/responsive.scss";
+
+/////////////////
+.inscription-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+        color: $blanc;
+        > strong {
+            margin: 0px 5px;
+            color: $blanc;
+            text-transform: uppercase;
+        }
+    }
+    .bouton-inscription {
+            padding: 5px 10px;
+            color: $primaire;
+            border: none;
+            border-radius: 10px;
+    } 
+}

@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Se connecter</h2>
+    <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" class="form-control" id="loginEmail" formControlName="loginEmail">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Mot de Passe</label>
+          <input type="password" class="form-control" id="loginPassword" formControlName="loginPassword">
+        </div>
+        <div class="bouton">
+            <button type="submit" (click)="login()" [disabled]="loginForm.invalid">CONNEXION</button>
+        </div>
+    </form>
+</div>
+<div class="inscription-container">
+  <p class="inscription">Nouveau sur <strong>groupomania</strong> ?</p>
+  <button class="bouton-inscription" (click)="goToSignup()">Inscrivez-vous ici !</button>
+</div>
+
+
