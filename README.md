@@ -49,7 +49,7 @@
          
 :rocket: **Accès au site :**
 
-      [http://localhost:4200/](http://localhost:4200/)
+         http://localhost:4200/
          
 
 
