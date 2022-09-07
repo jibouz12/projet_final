@@ -84,7 +84,8 @@ export class PostComponent implements OnInit {
           this.nombreLikes = 1;
         }),
       ).subscribe();
-    } if (this.liked == true && this.nombreLikes == 1) {
+    } 
+    if (this.liked == true && this.nombreLikes == 1) {
       this.postService.likePostById(postId, this.liked).pipe(
         take(1),
         tap(() => {
@@ -92,7 +93,8 @@ export class PostComponent implements OnInit {
           this.nombreLikes = 0;
         }),
       ).subscribe();
-    } if (this.liked == true && this.nombreLikes == 0) {
+    } 
+    if (this.liked == true && this.nombreLikes == 0) {
       this.postService.likePostById(postId, this.liked).pipe(
         take(1),
         tap(() => {
@@ -100,7 +102,8 @@ export class PostComponent implements OnInit {
           this.nombreLikes = -1;
         }),
       ).subscribe();    
-    } if (this.liked == false && this.nombreLikes == -1) {
+    } 
+    if (this.liked == false && this.nombreLikes == -1) {
       this.postService.likePostById(postId, this.liked).pipe(
         take(1),
         tap(() => {
