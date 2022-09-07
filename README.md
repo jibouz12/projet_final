@@ -11,7 +11,7 @@
        
   - *dans le dossier "back", créez un fichier .env et ajoutez-y votre string de connection MongoDB et la clé token suivante :*
 
-        CONNECTION = mongodb+srv://groupomania:s0N6TiPRbtPDVx8T@cluster0.l8heg5t.mongodb.net/test
+        CONNECTION = mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>
 
         CLE_TOKEN = CLE_SECRETE_TOKEN
         
