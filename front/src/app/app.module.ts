@@ -7,7 +7,6 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { PostModule } from './post/post.module';
-import { ProfilModule } from './profil/profil.module';
 
 @NgModule({
   declarations: [
@@ -18,9 +17,8 @@ import { ProfilModule } from './profil/profil.module';
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
-    SharedModule,
     AuthModule,
-    ProfilModule,
+    SharedModule,
     PostModule,
   ],
 

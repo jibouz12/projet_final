@@ -14,7 +14,6 @@ import { CreateNewPostRoutingModule } from './create-new-post-routing.module';
     CommonModule,
     SharedModule,
     CreateNewPostRoutingModule,
-    
   ],
 
   exports: [
