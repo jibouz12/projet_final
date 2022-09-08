@@ -27,8 +27,8 @@ import { HeaderComponent } from './components/header/header.component';
   ],
 
   providers: [
-    { provide: LOCALE_ID, useValue: 'fr-FR'},
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ]
 })
 
