@@ -17,7 +17,6 @@ export class PostComponent implements OnInit {
   userId!: string;
   userAdmin!:string;
   postId!: string;
-  test!: number;
   nombreLikes!: number;
 
 
