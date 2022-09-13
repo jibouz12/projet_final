@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap } from 'rxjs';
+import { Constants } from 'src/app/constants/constants';
 import { Post } from '../models/post.model';
 
 @Injectable({
@@ -8,26 +9,27 @@ import { Post } from '../models/post.model';
 })
 export class PostService {
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient,
+                private constants: Constants) {}
     
 
 
 ////////////////////
 /// récupérer tous les posts
 getAllPost() : Observable<Post[]> {
-    return this.http.get<Post[]>("http://localhost:3000/api/posts");
+    return this.http.get<Post[]>(`${this.constants.protocol}://${this.constants.domain}/posts`);
 }
 
 ///////////////////
 /// récupérer un post avec son id
 getPostById(Id : string) : Observable<Post> {
-    return this.http.get<Post>(`http://localhost:3000/api/posts/${Id}`);
+    return this.http.get<Post>(`${this.constants.protocol}://${this.constants.domain}/posts/${Id}`);
 }
 
 ///////////////////
 /// récupérer les posts d'un utilisateur (avec userId)
 getPostsByUserId(userId : string) : Observable<Post[]> {
-    return this.http.get<Post[]>(`http://localhost:3000/api/posts/profil/${userId}`);
+    return this.http.get<Post[]>(`${this.constants.protocol}://${this.constants.domain}/posts/profil/${userId}`);
 }
 
 ////////////////////
@@ -38,7 +40,7 @@ likePostById(postId : string, likeAction : boolean) : Observable<Post> {
             ...post,
             likes: likeAction,
         })),
-        switchMap(updatedPost => this.http.put<Post>(`http://localhost:3000/api/posts/liker/${postId}`, updatedPost)
+        switchMap(updatedPost => this.http.put<Post>(`${this.constants.protocol}://${this.constants.domain}/posts/liker/${postId}`, updatedPost)
         )
     );
 }
@@ -49,7 +51,7 @@ createPost(post : Post, image : File) {
     const formData = new FormData();
     formData.append('post', JSON.stringify(post));
     formData.append('image', image);
-    return this.http.post<{ message: string }>('http://localhost:3000/api/posts', formData);
+    return this.http.post<{ message: string }>(`${this.constants.protocol}://${this.constants.domain}/posts`, formData);
 }
 
 //////////////////////
@@ -61,7 +63,7 @@ commenterPost(postId : string, commentaire : string) : Observable<Post> {
             com: commentaire,
             postId: postId
         })),
-        switchMap(updatedPost => this.http.put<Post>(`http://localhost:3000/api/posts/commenter/${postId}`, updatedPost)
+        switchMap(updatedPost => this.http.put<Post>(`${this.constants.protocol}://${this.constants.domain}/posts/commenter/${postId}`, updatedPost)
         )
     );
 }
@@ -69,7 +71,7 @@ commenterPost(postId : string, commentaire : string) : Observable<Post> {
 ///////////////////////////
 // supprimer post
 supprimerPost(postId : string) : Observable<Post>  {
-    return this.http.delete<Post>(`http://localhost:3000/api/posts/${postId}`)
+    return this.http.delete<Post>(`${this.constants.protocol}://${this.constants.domain}/posts/${postId}`)
 }
 
 ////////////////////////////
@@ -78,12 +80,12 @@ supprimerPost(postId : string) : Observable<Post>  {
 // --> si l'image a été modifiée : l'image est de type File
 modifyPost(postId : string, post : Post, image : File | string) {
     if (typeof image === "string") {
-        return this.http.put<{ message: string }>(`http://localhost:3000/api/posts/modify/${postId}`, post)
+        return this.http.put<{ message: string }>(`${this.constants.protocol}://${this.constants.domain}/posts/modify/${postId}`, post)
     } else {
         const formData = new FormData();
         formData.append('post', JSON.stringify(post));
         formData.append('image', image);
-        return this.http.put<{ message: string }>(`http://localhost:3000/api/posts/modify/${postId}`, formData)
+        return this.http.put<{ message: string }>(`${this.constants.protocol}://${this.constants.domain}/posts/modify/${postId}`, formData)
     }
 }
 
