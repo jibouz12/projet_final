@@ -76,14 +76,14 @@ getUserAdmnin() : string {
 ////////////////////////////////
 /// créer nouvel utilisateur
 createUser(email: string, password: string) {
-    return this.http.post<{ message: string }>(`${this.constants.protocol}://${this.constants.domain}/auth/signup`, {email: email, password: password});
+    return this.http.post<{ message: string }>(`${this.constants.protocol}://${this.constants.domain}/api/auth/signup`, {email: email, password: password});
 }
 
 //////////////////////
 /// connection utilisateur
 /// + ajouter infos sécurisées dans le LS
 loginUser(email: string, password: string) {
-    return this.http.post<{ userId: string, token: string, pseudo: string, admin: string }>(`${this.constants.protocol}://${this.constants.domain}/auth/login`, {email: email, password: password}).pipe(
+    return this.http.post<{ userId: string, token: string, pseudo: string, admin: string }>(`${this.constants.protocol}://${this.constants.domain}/api/auth/login`, {email: email, password: password}).pipe(
         tap(({ userId, token, pseudo, admin }) => {
             this.userId = userId;
             this.authToken = token;

@@ -6,5 +6,5 @@ import { Injectable } from '@angular/core';
 
 export class Constants {
     public protocol = "http";
-    public domain = "localhost:3000/api"
+    public domain = "localhost:3000"
   }
